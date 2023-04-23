@@ -23,7 +23,7 @@
                     <div class="d-flex p-4 texts">
                         <h2>Map</h2>
                     </div>
-                    <a role="button" class="btn btn-primary mapbtn">View Map</a>
+                    <a role="button" class="btn btn-primary mapbtn" href="view_map.php">View Map</a>
                 </div>
                 <div class="col-lg-6 order-lg-1 mt-lg-5">
                     <div class="row row-cols-lg-2 mx-2 text-center justify-content-center">

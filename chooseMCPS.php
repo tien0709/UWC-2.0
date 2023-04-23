@@ -39,8 +39,8 @@ for (var i = 0; i < jsonData.length; i++) {
     row.append($('<td>').text(jsonData[i].capacity));
     row.append(
         $('<td>').append(
-          $('<a class="btn btn-success myUpdate"   href="#">').text('Cập nhật'),
-          $('<a class="btn btn-danger myDelete"  href="#">').text('Xóa'),
+            $('<a class="btn btn-success myUpdate" href="UpdateMcp.php?id=' + jsonData[i].mcp_id + '">').text('Cập nhật'),
+            $('<a class="btn btn-danger myDelete" data-id="' + jsonData[i].mcp_id + '">').text('Xóa')
         )
     );
     table.append(row);
@@ -84,8 +84,8 @@ for (var i = 0; i < jsonData.length; i++) {
     row.append($('<td>').text(jsonData[i].capacity));
     row.append(
         $('<td>').append(
-            $('<a class="btn btn-success myUpdate" href="#"  data-id="' + jsonData[i].mcp_id + '">').text('Cập nhật'),
-            $('<a class="btn btn-danger myDelete" href="#"  data-id="' + jsonData[i].mcp_id + '">').text('Xóa')
+            $('<a class="btn btn-success myUpdate" href="UpdateMcp.php?id=' + jsonData[i].mcp_id + '">').text('Cập nhật'),
+            $('<a class="btn btn-danger myDelete"  data-id="' + jsonData[i].mcp_id + '">').text('Xóa')
         )
     );
     table.append(row);
@@ -163,7 +163,7 @@ $('#data-table').html(table);
                     echo "<td>".$row['mcp_manager']."</td>";
                     echo "<td>".$row['capacity']."</td>";
                     echo "<td>";
-                    echo "<a class='btn btn-success' href='UpdateMcp.php?id=" . $row['mcp_id'] . "'>Cập nhật</a>";
+                    echo "<a class='btn btn-success myUpdate' href='UpdateMcp.php?id=" . $row['mcp_id'] . "'>Cập nhật</a>";
                     echo "<a class='btn btn-danger myDelete' data-id='".$row['mcp_id']."' >Xóa</a>";
                     echo "</td>";
                     echo "</tr>";

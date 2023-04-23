@@ -17,8 +17,9 @@ session_start();
     <!--Button-->
     <div class="d-grid gap-2 col-6 mx-auto">
       <!--Link to map-->
-      <button class="btn btn-primary" type="button" onclick="location.href='#'">Choose An Available Route</button>
+      <button class="btn btn-primary" type="button" onclick="location.href='route_choosing.php'">Choose An Available Route</button>
       <button class="btn btn-primary a" type="button" onclick="location.href='chooseMCPS.php'"> Choose MCPS </button>
+
     </div>
 
      <!-- Footer  -->

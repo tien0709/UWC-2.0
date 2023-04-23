@@ -70,7 +70,7 @@ session_start();
         $manager = $_POST['managerMCPS'] ;
 
       include "connection.php";
-    /*  $display_query = "SELECT * FROM mcps";               
+      $display_query = "SELECT * FROM mcps";               
       $results = mysqli_query($con,$display_query);   
       while($row = mysqli_fetch_assoc($results)){
            if($row['mcp_id'] == $id) {
@@ -85,7 +85,7 @@ session_start();
                 echo "<p style='color: red;'> Quản lí đã tồn tại</p>";
                 $error = 1;
             } 
-      }*/
+      }
       if(!$error){
         $new_sql = " INSERT INTO mcps(mcp_id,mcp_address,mcp_manager,capacity) VALUES ('".$id."','".$address."','".$manager."','".$capacity."')";
         mysqli_query($con,$new_sql);
