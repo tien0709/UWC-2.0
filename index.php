@@ -17,11 +17,8 @@
         <div class="row">
             <div class="col-6">
                 <div class="bg-image hover-overlay ripple rounded-5" data-mdb-ripple-color="light">
-<<<<<<< HEAD
                 <img id="img1" src="./img/main_2.jpg" class="img-fluid" />
-=======
-                <img id="img1" src="http://localhost/project_demo/img/main_2.jpg" class="img-fluid" />
->>>>>>> cf7f2894b8a4074a399997354ec0227ebca4e1ad
+
                 </div>
             </div>
             <div class="col-6 ">

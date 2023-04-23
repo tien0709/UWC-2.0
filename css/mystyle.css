@@ -1,11 +1,8 @@
 /* Log & sign page */
 #login{
     background-color: green;
-<<<<<<< HEAD
-    background-image: url("http://localhost/img/pexels-nazmul-chowdhury-945556.jpg");
-=======
-    background-image: url("http://localhost/project_demo/img/pexels-nazmul-chowdhury-945556.jpg");
->>>>>>> cf7f2894b8a4074a399997354ec0227ebca4e1ad
+    background-image: url("./img/pexels-nazmul-chowdhury-945556.jpg");
+
     height: 100%;
     /* Center and scale the image nicely */
     background-position: center;
@@ -73,11 +70,9 @@ backdrop-filter: saturate(200%) blur(25px);
 }
 @font-face {
     font-family: 'Lato';
-<<<<<<< HEAD
-    src: url('http://localhost/font/Lato/Lato-Regular.ttf');
-=======
-    src: url('http://localhost/project_demo/font/Lato/Lato-Regular.ttf');
->>>>>>> cf7f2894b8a4074a399997354ec0227ebca4e1ad
+
+    src: url('./font/Lato/Lato-Regular.ttf');
+
 }
 div{
     display: block;
@@ -101,11 +96,9 @@ div{
     font-family: Lato;
 }
 #intro{
-<<<<<<< HEAD
-    background-image: url("http://localhost/img/officer_wall.jpg") ;
-=======
-    background-image: url("http://localhost/project_demo/img/officer_wall.jpg") ;
->>>>>>> cf7f2894b8a4074a399997354ec0227ebca4e1ad
+
+    background-image: url("./img/officer_wall.jpg") ;
+
     height: 60vh;
     background-position: 30% 60%;
     background-size: cover;
@@ -131,11 +124,9 @@ div{
     background-color: #59981A;
 }
 .MAP {
-<<<<<<< HEAD
-    background-image: url('http://localhost/img/Map.jpg');
-=======
-    background-image: url('http://localhost/project_demo/img/Map.jpg');
->>>>>>> cf7f2894b8a4074a399997354ec0227ebca4e1ad
+
+    background-image: url('./img/Map.jpg');
+
     transform: scale(1);
     background-size: cover;
 }
@@ -159,7 +150,7 @@ div{
     margin: 5px;
 }
 .abilities .images {
-    background-image: url('http://localhost/project_demo/img/Map.jpg');
+    background-image: url('./img/Map.jpg');
     min-height: 30rem;
     background-size: cover;
 }
