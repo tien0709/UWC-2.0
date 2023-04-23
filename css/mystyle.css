@@ -47,11 +47,7 @@ backdrop-filter: saturate(200%) blur(25px);
     font-family: Lato;
 }
 #intro_main{
-<<<<<<< HEAD
-    background-image: url(" http://localhost/img/main_webpage.jpg") ;
-=======
-    background-image: url("http://localhost/project_demo/img/main_webpage.jpg") ;
->>>>>>> cf7f2894b8a4074a399997354ec0227ebca4e1ad
+    background-image: url("./img/main_webpage.jpg") ;
     height: 60vh;
     background-position: center;
     background-size: cover; 
