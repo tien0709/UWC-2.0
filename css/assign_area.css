@@ -1,0 +1,28 @@
+
+
+#district{
+  width: 400px;
+  height: 45px;
+  font-size: larger ;
+  margin-top: 35px;
+  text-align: center;
+}
+
+#ward{
+  width: 400px;
+  height: 45px;
+  margin-top: 20px;
+  font-size: larger ;
+  text-align: center;
+}
+
+
+
+
+
+/* select{
+    width: 370px;
+    font-size: larger ;
+} */
+
+
