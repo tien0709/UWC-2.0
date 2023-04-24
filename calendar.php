@@ -85,13 +85,9 @@
                     })
                     var calendar = new FullCalendar.Calendar(document.getElementById('calendar'), {
                         editable: true,
-                        initialView: 'dayGridMonth',
+                        initialView: 'timeGridWeek',
                         selectable: true,
                         selectHelper: true,
-                        headerToolbar: {
-                            left: 'prev,next',
-                            center: 'title',
-                        },
                         select: function(start, end) {
                             $('#event_start_hour').val(moment(start).format('YYYY-MM-DD hh:mm'));
                             $('#event_end_hour').val(moment(end).format('YYYY-MM-DD hh:mm'));

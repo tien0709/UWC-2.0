@@ -28,7 +28,7 @@
                 <div class="col-lg-6 order-lg-1 mt-lg-5">
                     <div class="row row-cols-lg-2 mx-2 text-center justify-content-center">
                         <div class="col my-3 abi">
-                            <a class="card btn abi2">
+                            <a  href = "calendar.php" class="card btn abi2">
                                 <div class="card-body">
                                     <h6 class="font-weight-bold mb-3"><strong>View Calendar</strong></h6>
                                     <p class="mb-0">View details job of your janitors, collectors </p>

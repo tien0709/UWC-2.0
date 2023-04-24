@@ -18,7 +18,7 @@
         <div class="container select_collector" >
             <!-- Three columns of text below the carousel -->
             <div class="row mt-5" >
-                <h1 class = "mb-3">Select Your Collector</h1>
+                <h1 class = "mb-3">Select Your Employees</h1>
                 <div class="col-lg-4" >
                     <img src="https://i.pravatar.cc/300" class="rounded-circle" style="width: 150px;"alt="Avatar" />            
                     <h2 class = "mt-2">Linda</h2>

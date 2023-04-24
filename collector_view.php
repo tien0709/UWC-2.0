@@ -27,7 +27,7 @@
                 <p class="mb-0">Collector</p>
                 <p class="mb-2">Bristol, Tennessee(TN)</p>
                 <div class="d-flex justify-content-center mb-2 button_infor">
-                    <a role="button" class="btn ">Assign Area</a>
+                    <a href = './assign_area_choosing.php' role="button" class="btn ">Assign Area</a>
                     <a role="button" class="btn ">Message</a>
                 </div>
               </div>

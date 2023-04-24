@@ -41,7 +41,7 @@ session_start();
     <!--Button-->
     <div class="d-grid gap-2 col-6 mx-auto">
       <!--Link to calendar-->
-      <button class="btn btn-primary a" type="button" onclick="location.href='#'">Select Area</button>
+      <button class="btn btn-primary a" type="button" onclick="location.href='./calendar.php'">Select Area</button>
     </div>
 
      <!-- Footer  -->

@@ -17,7 +17,7 @@
         <div class="row">
             <div class="col-6">
                 <div class="bg-image hover-overlay ripple rounded-5" data-mdb-ripple-color="light">
-                <img id="img1" src="./img/main_2.jpg" class="img-fluid" />
+                <img id="img1" src="http://localhost/UWC-2.0/img/main_2.jpg" class="img-fluid" />
 
                 </div>
             </div>
