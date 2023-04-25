@@ -15,13 +15,13 @@ session_start();
             <div class="col-lg-5">
                 <img src="route1.jpg" class="rounded" style="width: 450px; height: 270px;" alt="Route1" />
                 <p class="d-flex justify-content-center" style="margin-top: 10px;">
-                    <a href="calendar.php" class="btn btn-secondary" style="width: 200px;">Route 1</a>
+                    <a href="./choosing_vehicle.php" class="btn btn-secondary" style="width: 200px;">Route 1</a>
                 </p>
             </div>
             <div class="col-lg-5">
                 <img src="route2.jpg" class="rounded" style="width: 450px; height: 270px;" alt="Route2" />
                 <p class="d-flex justify-content-center" style="margin-top: 10px;">
-                    <a href="calendar.php" class="btn btn-secondary" style="width: 200px;">Route 2</a>
+                    <a href="./choosing_vehicle.php" class="btn btn-secondary" style="width: 200px;">Route 2</a>
                 </p>
             </div>
         </div>
