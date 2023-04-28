@@ -17,7 +17,14 @@
 }
 
 
+.button-container {
+  text-align: center; /* Căn giữa nút */
+}
 
+.button-container button {
+  display: inline-block; /* Đặt nút trong cùng một hàng */
+  margin: 0 5px; /* Để khoảng cách giữa 2 nút */
+}
 
 
 /* select{

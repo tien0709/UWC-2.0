@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light mb-0">
     <div class="container-fluid">
-        <a class="navbar-brand" href="backoff.php">MVP 1.0</a>
+        <a class="navbar-brand" href="backoff.php">MVP 2.0</a>
         <div class="navbar-expand " id="navbarNav">
             <ul class="navbar-nav">
             <li class="nav-item">

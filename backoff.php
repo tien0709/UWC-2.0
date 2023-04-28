@@ -23,12 +23,12 @@
                     <div class="d-flex p-4 texts">
                         <h2>Map</h2>
                     </div>
-                    <a role="button" class="btn btn-primary mapbtn">View Map</a>
+                    <a role="button" class="btn btn-primary mapbtn" href="view_map.php">View Map</a>
                 </div>
                 <div class="col-lg-6 order-lg-1 mt-lg-5">
                     <div class="row row-cols-lg-2 mx-2 text-center justify-content-center">
                         <div class="col my-3 abi">
-                            <a class="card btn abi2">
+                            <a  href = "calendar_new.php" class="card btn abi2">
                                 <div class="card-body">
                                     <h6 class="font-weight-bold mb-3"><strong>View Calendar</strong></h6>
                                     <p class="mb-0">View details job of your janitors, collectors </p>
@@ -56,6 +56,14 @@
                                 <div class="card-body">
                                     <h6 class="font-weight-bold mb-3"><strong>Assign Area</strong></h6>
                                     <p class="mb-0">Assign Area for your janitors</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col my-3">
+                            <a href="Area_mcp_choosing.php" class="card btn abi2">
+                                <div class="card-body">
+                                    <h6 class="font-weight-bold mb-3"><strong>Update MCPs</strong></h6>
+                                    <p class="mb-0">Add, delete, update mcps</p>
                                 </div>
                             </a>
                         </div>

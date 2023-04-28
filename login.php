@@ -54,7 +54,7 @@
                                             $dbusername=$row['username'];
                                             $dbpassword=$row['password'];
                                         }
-                                        if($user == $dbusername && $pass == $dbpassword){
+                                        if($user == $dbusername && $pass == $dbpassword && $user='admin'){
                                             session_start();
                                             $_SESSION['user']=$user;
                                             header("Location: backoff.php");

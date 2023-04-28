@@ -11,7 +11,7 @@ if (!$con) {
 
 // Lấy dữ liệu từ database
 if($_POST['capacity']=='all') $sql = "SELECT * FROM mcps";
-else $sql = "SELECT * FROM mcps WHERE capacity = '".$_POST['capacity']."'";
+else $sql = "SELECT * FROM mcps WHERE capacity = '".$_POST['capacity']."' AND mcp_district = '".$_POST['district']."'";
 $result = mysqli_query($con, $sql);
 
 // Chuyển dữ liệu thành mảng JSON

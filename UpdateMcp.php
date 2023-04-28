@@ -15,6 +15,7 @@ session_start();
         while($row = mysqli_fetch_assoc($results)){
             if($row['mcp_id']==$_GET['id']){
                 $id = $row['mcp_id'];
+                $district = $row['mcp_district'];
                 $address = $row['mcp_address'];
                 $manager =$row['mcp_manager'];
                 $capacity = $row['capacity'];
@@ -27,7 +28,8 @@ session_start();
                 <form  action="" method="post" class="col-md-6 bg-light p-3">
                     <h2 class= "text-center text-uppercase h3 my-5"> Cập nhập tình trạng của MCPs </h2>
                     <h3 class= "text-center text-uppercase h3 my-5"> MCP <?php echo $_GET['id'];?> </h3>
-                    <h3 class= "text-center text-uppercase h3 my-5"> Vị trí <?php echo $address; ?> </h3>
+                    <h3 class= "text-center text-uppercase h3 my-5">  <?php echo $district; ?> </h3>
+                    <h3 class= "text-center text-uppercase h3 my-5"> <?php echo $address; ?> </h3>
                     <div class="form-group">
                         <label for="capaMCPS"> Tình trạng của điểm MCPs</label>
                         <div>
@@ -95,7 +97,7 @@ session_start();
     }
     ?>             
                 </form>  
-                <a href='chooseMCPS.php'><button class="return btn btn-success btn-block mt-4"> quay lại</button></a> 
+                <a href='chooseMCPS.php?kv=<?php echo $district ?>'><button class="return btn btn-success btn-block mt-4"> quay lại</button></a> 
             </div>
         </div>
     </div>

@@ -6,15 +6,17 @@ session_start();
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
+        var district = "<?php echo $_GET['kv'] ?>";
         $(document).ready(function() {
-
             // Khi select thay đổi giá trị
             $('#mySelect_2').on('change', function() {
                 // Gửi yêu cầu AJAX để lấy dữ liệu mới từ máy chủ
                 $.ajax({
                     url: 'ajax_filter_MCP.php', // Đường dẫn đến file xử lý yêu cầu AJAX
                     type: 'POST',
-                    data: {capacity: $(this).val()}, // Dữ liệu gửi đi (tuổi được chọn)
+                    data: {capacity: $(this).val(),
+                           district: district
+                    }, // Dữ liệu gửi đi (tuổi được chọn)
                     success: function(data) {
                         // Cập nhật nội dung của bảng với dữ liệu mới
                         // Chuyển chuỗi JSON sang đối tượng JavaScript
@@ -39,8 +41,8 @@ for (var i = 0; i < jsonData.length; i++) {
     row.append($('<td>').text(jsonData[i].capacity));
     row.append(
         $('<td>').append(
-          $('<a class="btn btn-success myUpdate"   href="#">').text('Cập nhật'),
-          $('<a class="btn btn-danger myDelete"  href="#">').text('Xóa'),
+            $('<a class="btn btn-success myUpdate" href="UpdateMcp.php?id=' + jsonData[i].mcp_id + '">').text('Cập nhật'),
+            $('<a class="btn btn-danger myDelete" data-id="' + jsonData[i].mcp_id + '">').text('Xóa')
         )
     );
     table.append(row);
@@ -53,13 +55,13 @@ $('#data-table').html(table);
             });
 
     // nut Delete
-        $('.myDelete').on('click', function() {
+        $('#data-table').on('click','.myDelete', function() {//phai lam nhu nay thi moi xoa dc nhieu lan hoac xap xep roi xoa ma khong phai f5
                 // Gửi yêu cầu AJAX để lấy dữ liệu mới từ máy chủ
                 var mcp_id = $(this).data('id');
                 $.ajax({
                     url: 'ajax_delete_MCP.php', // Đường dẫn đến file xử lý yêu cầu AJAX
                     type: 'POST',
-                    data: {id: mcp_id}, // Dữ liệu gửi đi (tuổi được chọn)
+                    data: {id: mcp_id, kv: "<?php echo $_GET['kv']; ?>" }, // Dữ liệu gửi đi (tuổi được chọn)
                     success: function(data) {
                         // Cập nhật nội dung của bảng với dữ liệu mới
                         // Chuyển chuỗi JSON sang đối tượng JavaScript
@@ -69,10 +71,10 @@ var jsonData = JSON.parse(data);
 var table = $('<table class="table table-bordered table-hover" id="data-table">');
 var headerRow = $('<tr>');
 headerRow.append($('<th class="text-center">').text('ID'));
-headerRow.append($('<th class="text-center">').text('Khu vực'));
-headerRow.append($('<th class="text-center">').text('Quản lí'));
-headerRow.append($('<th class="text-center">').text('Trạng thái'));
-headerRow.append($('<th class="text-center">').text('Hoạt động'));
+headerRow.append($('<th class="text-center">').text('Location'));
+headerRow.append($('<th class="text-center">').text('Manager'));
+headerRow.append($('<th class="text-center">').text('Status'));
+headerRow.append($('<th class="text-center">').text(''));
 table.append(headerRow);
 
 // Lặp qua các phần tử trong đối tượng và thêm các hàng vào bảng
@@ -84,8 +86,8 @@ for (var i = 0; i < jsonData.length; i++) {
     row.append($('<td>').text(jsonData[i].capacity));
     row.append(
         $('<td>').append(
-            $('<a class="btn btn-success myUpdate" href="#"  data-id="' + jsonData[i].mcp_id + '">').text('Cập nhật'),
-            $('<a class="btn btn-danger myDelete" href="#"  data-id="' + jsonData[i].mcp_id + '">').text('Xóa')
+            $('<a class="btn btn-success myUpdate" href="UpdateMcp.php?id=' + jsonData[i].mcp_id + '">').text('Update'),
+            $('<a class="btn btn-danger myDelete"  data-id="' + jsonData[i].mcp_id + '">').text('Delete')
         )
     );
     table.append(row);
@@ -96,6 +98,7 @@ $('#data-table').html(table);
                     }
                 });
             });
+
         });
     </script>
   </head>
@@ -106,12 +109,12 @@ $('#data-table').html(table);
   <!-- Main webpage-->
     <!-- Background-->
     <div class="content">
-        <h3 class="text-center">QUẢN LÝ MCPs</h3>
-
+        <h3 class="text-center">MCPs Manage</h3>
+        <h5 class="text-center">Area: <?php echo $_GET['kv'] ?></h5>
         <div class="container">
             <div class="row">
                 <div class="col">
-                    <a href="AddMcp.php"><input class="btn btn-primary" type="button" value="Thêm MCP"></a>
+                    <a href="AddMcp.php?kv=<?php echo $_GET['kv'] ?>"><input class="btn btn-primary" type="button" value="Add MCP"></a>
                 </div>
 
              <!--   <div class="col input-group mb-3">
@@ -123,7 +126,7 @@ $('#data-table').html(table);
                 </div> -->
                 <div class="col input-group mb-3">
                     <select class="custom-select" id="mySelect_2">
-                        <option selected value="all">Lọc theo trạng thái</option>
+                        <option selected value="all">Status filter</option>
                         <option value="0%">0%</option>
                         <option value="25%">25%</option>
                         <option value="50%">50%</option>
@@ -141,15 +144,20 @@ $('#data-table').html(table);
                 });  */           
                 </script>
             </div>
+            <div class="row">
+              <div class="d-flex  mb-2  ">
+                <a href = 'Area_mcp_choosing.php' role="button" class="btn "><< Back</a>
+              </div>
+            </div>
         </div>
 
         <table class=" table table-bordered table-hover" id="data-table">
             <tr class="thead text-center">
                 <th>ID</th>
-                <th>Khu vực</th>
-                <th>Quản lí</th>
-                <th>Trạng thái</th>
-                <th>Hoạt động</th>
+                <th>Location</th>
+                <th>Manager</th>
+                <th>Status</th>
+                <th></th>
             </tr>
 
         <?php          
@@ -157,17 +165,18 @@ $('#data-table').html(table);
                 $display_query = "SELECT * FROM mcps";             
                 $results = mysqli_query($con,$display_query);   
                 while($row = mysqli_fetch_assoc($results)){
+                    if($row['mcp_district']==$_GET['kv']){
                     echo "<tr>";
                     echo "<td>".$row['mcp_id']."</td>";
                     echo "<td>".$row['mcp_address']."</td>";
                     echo "<td>".$row['mcp_manager']."</td>";
                     echo "<td>".$row['capacity']."</td>";
                     echo "<td>";
-                    echo "<a class='btn btn-success' href='UpdateMcp.php?id=" . $row['mcp_id'] . "'>Cập nhật</a>";
-                    echo "<a class='btn btn-danger myDelete' data-id='".$row['mcp_id']."' >Xóa</a>";
+                    echo "<a class='btn btn-success myUpdate' href='UpdateMcp.php?id=" . $row['mcp_id'] . "'>Update</a>";
+                    echo "<a class='btn btn-danger myDelete' data-id='".$row['mcp_id']."' >Delete</a>";
                     echo "</td>";
                     echo "</tr>";
-
+                    }
                 }
         ?>
         </table>

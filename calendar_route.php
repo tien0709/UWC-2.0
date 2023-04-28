@@ -65,32 +65,24 @@
     ?>
     <script>
         <?php
-$sql = "SELECT * FROM employee WHERE employee_id = '".$_GET['em_id']."'";
+$sql = "SELECT * FROM employee WHERE employee_id = '".$_GET['id']."'";
 $result = mysqli_query($con, $sql);
 $row = mysqli_fetch_assoc($result);
 $employee_name = $row['employee_name'];
 ?>
-var employee_id = "<?php echo $employee_name; ?>";
-
-<?php
-$sql = "SELECT * FROM mcps WHERE mcp_id = '".$_GET['mcp_id']."'";
-$result = mysqli_query($con, $sql);
-$row = mysqli_fetch_assoc($result);
-$mcp_district = $row['mcp_district'];
-$mcp_ward = $row['mcp_address'];
-?>
+var employee_name = "<?php echo $employee_name; ?>";
 
 function removeVietnameseTones(str) {
-    var from = "àáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹđÀÁẠẢÃÂẦẤẬẨẪĂẰẮẶẲẴÈÉẸẺẼÊỀẾỆỂỄÌÍỊỈĨÒÓỌỎÕÔỒỐỘỔỖƠỜỚỢỞỠÙÚỤỦŨƯỪỨỰỬỮỲÝỴỶỸĐ";
-    var to   = "aaaaaaaaaaaaaaaaaeeeeeeeeeeeiiiiiooooooooooooooooouuuuuuuuuuuyyyyydAAAAAAAAAAAAAAAAAEEEEEEEEEEEIIIIIOOOOOOOOOOOOOOOOOUUUUUUUUUUUYYYYYD";
+  var from = "àáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹđÀÁẠẢÃÂẦẤẬẨẪĂẰẮẶẲẴÈÉẸẺẼÊỀẾỆỂỄÌÍỊỈĨÒÓỌỎÕÔỒỐỘỔỖƠỜỚỢỞỠÙÚỤỦŨƯỪỨỰỬỮỲÝỴỶỸĐ";
+  var to   = "aaaaaaaaaaaaaaaaaeeeeeeeeeeeiiiiiooooooooooooooooouuuuuuuuuuuyyyyydAAAAAAAAAAAAAAAAAEEEEEEEEEEEIIIIIOOOOOOOOOOOOOOOOOUUUUUUUUUUUYYYYYD";
   for (var i = 0, l = from.length; i < l; i++) {
     str = str.replace(new RegExp(from.charAt(i), 'g'), to.charAt(i));
   }
   return str;
 }
 
-var mcp_address = removeVietnameseTones("<?php echo $mcp_district; ?>") + ","+removeVietnameseTones(" <?php echo $mcp_ward; ?>");
-var event = "Collector:" + employee_id + ", Location: "+ mcp_address;
+var district = removeVietnameseTones("<?php echo $_GET['kv']; ?>");
+var event = "Janitor:" + employee_name + ", district: "+ district+ ", route: "+ "<?php echo $_GET['route']; ?>"+ ",vehicle: "+ "<?php echo str_replace('_',' ',$_GET['vehicle']); ?>";
 
         $(document).ready(function() {
             display_events();

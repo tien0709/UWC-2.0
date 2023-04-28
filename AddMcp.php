@@ -18,13 +18,14 @@ session_start();
             <div class="row justify-content-around">
                 <form  action="" method="post" class="col-md-6 bg-light p-3">
                     <h2 class= "text-center text-uppercase h3 my-5"> Tạo MCPs </h2>
+                    <h4 class= "text-center text-uppercase h3 my-5"> Khu vực : <?php echo $_GET['kv']; ?></h4>
                     <div class="form-group">
                         <label for="idMCPS"> Mã MCPs</label>
                         <input type="text" name="idMCPS" id="idMCPs" class="form-control" required>                    
                     </div>                    
                     <div class="form-group">
-                        <label for="addressMCPS"> Vị trí điểm MCPs </label>
-                        <input  type="text" name="addressMCPS" id="addressMCPs" class="form-control" required>
+                        <label for="addressMCPS"> địa chỉ của MCPs(phường, ấp, tên đường,...) </label>
+                        <input  type="text" name="addressMCPS" id="addressMCPs" class="form-control" placeholder="ghi theo định dạng ví dụ: Ấp 6, Phường 1" required>
                     </div>
                     <div class="form-group">
                         <label for="capaMCPS"> Tình trạng của điểm MCPs</label>
@@ -53,7 +54,7 @@ session_start();
                     </div>
                     <div class="form-group">
                         <label for="managerMCPS"> Quản lí MCPs </label>
-                        <input  type="text" name="managerMCPS" id="managerMCPs" class="form-control" required>
+                        <input  type="text" name="managerMCPS" id="managerMCPs" Placeholder="ví dụ: Văn Nam" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <div>
@@ -68,9 +69,10 @@ session_start();
         $address = $_POST['addressMCPS'] ;
         $capacity = $_POST['capaMCPS'] ;
         $manager = $_POST['managerMCPS'] ;
+        $district = $_GET['kv'] ;
 
       include "connection.php";
-    /*  $display_query = "SELECT * FROM mcps";               
+      $display_query = "SELECT * FROM mcps";               
       $results = mysqli_query($con,$display_query);   
       while($row = mysqli_fetch_assoc($results)){
            if($row['mcp_id'] == $id) {
@@ -85,16 +87,16 @@ session_start();
                 echo "<p style='color: red;'> Quản lí đã tồn tại</p>";
                 $error = 1;
             } 
-      }*/
+      }
       if(!$error){
-        $new_sql = " INSERT INTO mcps(mcp_id,mcp_address,mcp_manager,capacity) VALUES ('".$id."','".$address."','".$manager."','".$capacity."')";
+        $new_sql = " INSERT INTO mcps(mcp_id,mcp_district,mcp_address,mcp_manager,capacity) VALUES ('".$id."','".$district."','".$address."','".$manager."','".$capacity."')";
         mysqli_query($con,$new_sql);
         echo "<p style='color: red;'> Thêm MCP thành công</p>";
       }
     }
     ?>        
                 </form>  
-                <a href='chooseMCPS.php'><button class="return btn btn-success btn-block mt-4"> quay lại</button></a> 
+                <a href='chooseMCPS.php?kv=<?php echo $_GET['kv']; ?>'><button class="return btn btn-success btn-block mt-4"> quay lại</button></a> 
             </div>
         </div>
     </div>

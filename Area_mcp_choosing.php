@@ -29,7 +29,7 @@ session_start();
     </div>
     <div class="row">
            <div class="d-flex justify-content-center mb-2 ">
-                <a href = 'assign_route_view.php' role="button" class="btn "> << back</a>
+                <a href = 'backoff.php' role="button" class="btn "> << Back</a>
            </div>
     </div>
 
@@ -39,7 +39,7 @@ session_start();
   <?php include "footer.php"; ?>
   
   <!-- Select areas scripts -->
-  <script src="js/assign_route.js"></script>
+  <script src="js/area_mcp.js"></script>
   <!--mdb-->
   <script type="text/javascript" src="js/mdb.min.js"></script>
   <!-- Custom scripts -->

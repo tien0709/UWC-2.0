@@ -18,16 +18,22 @@
     <!-- Image Showcases-->
     <div class="container py-5 collector-information">
         <div class="row">
+         <?php 
+                  include "connection.php";
+                  $display_query = "SELECT * FROM employee";               
+                  $results = mysqli_query($con,$display_query);
+                  while($row = mysqli_fetch_assoc($results)){ 
+                    if($row['employee_id']==$_GET['id']){?>
+
           <div class="col-lg-4">
             <div class="card mb-4">
               <div class="card-body text-center">
-                <img src="https://i.pravatar.cc/300" alt="avatar"
+                <img src="<?php echo $row['employee_image'] ?>" alt="avatar"
                   class="rounded-circle img-fluid" style="width: 150px;">
-                <h5 class="my-1">Linda</h5>
-                <p class="mb-0">Collector</p>
-                <p class="mb-2">Bristol, Tennessee(TN)</p>
+                <h5 class="my-1"><?php echo $row['employee_name'] ?></h5>
+                <p class="mb-0"><?php echo $row['position'] ?></p>
+                <p class="mb-2"><?php echo $row['state'] ?></p>
                 <div class="d-flex justify-content-center mb-2 button_infor">
-                    <a role="button" class="btn ">Assign Area</a>
                     <a role="button" class="btn ">Message</a>
                 </div>
               </div>
@@ -41,7 +47,7 @@
                     <p class="mb-0">Email</p>
                   </div>
                   <div class="col-sm-9">
-                    <p class="mb-0">example@example.com</p>
+                    <p class="mb-0"><?php echo $row['email'] ?></p>
                   </div>
                 </div>
                 <hr>
@@ -50,7 +56,7 @@
                     <p class="mb-0">Phone</p>
                   </div>
                   <div class="col-sm-9">
-                    <p class=" mb-0">423-990-8820</p>
+                    <p class=" mb-0"><?php echo $row['phone'] ?></p>
                   </div>
                 </div>
                 <hr>    
@@ -59,7 +65,7 @@
                     <p class="mb-0">Street</p>
                   </div>
                   <div class="col-sm-9">
-                    <p class="mb-0">3525 Hershell Hollow Road</p>
+                    <p class="mb-0"><?php echo $row['street'] ?></p>
                   </div>
                 </div>
                 <hr>    
@@ -68,7 +74,7 @@
                     <p class="mb-0">State</p>
                   </div>
                   <div class="col-sm-9">
-                    <p class="mb-0">Bristol, Tennessee(TN)</p>
+                    <p class="mb-0"><?php echo $row['state'] ?></p>
                   </div>
                 </div>
                 <hr>    
@@ -77,12 +83,22 @@
                     <p class="mb-0">Country</p>
                   </div>
                   <div class="col-sm-9">
-                    <p class="mb-0">US(United States)</p>
+                    <p class="mb-0"><?php echo $row['country'] ?></p>
                   </div>
                 </div>
               </div>
             </div>
             </div>
+          </div>
+
+          <?php 
+                    }}
+          ?>
+
+        </div>
+        <div class="row">
+          <div class="d-flex justify-content-center mb-2 ">
+            <a href = './select_col.php' role="button" class="btn "><< Back</a>
           </div>
         </div>
       </div>
